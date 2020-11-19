@@ -1,0 +1,37 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Article;
+use App\Models\User;
+use App\Models\Category;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class ArticleFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Article::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'user_id' => User::factory(),
+            'category_id' => Category::factory(),
+            'title' => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
+            'content' => $this->faker->text(),
+            'status' => 'active',
+            'deleted_at' => null,
+            'image' => null,
+            'created_at' => now(),
+        ];
+    }
+}
