@@ -39,7 +39,7 @@ class CategoryController extends Controller
         return redirect('users/' . Auth::id())->with('success', 'New Category added succesfully!');
     }
 
-    // show all articles for category
+    // Show all articles for category
     public function show($id)
     {
         $category = Category::find($id);

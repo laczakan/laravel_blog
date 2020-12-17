@@ -10,7 +10,7 @@ use App\Models\Category;
 
 class UserController extends Controller
 {
-    //user profile
+    // Show user profile
     public function show(User $user)
     {
         $articles = $user->articles()->orderBy('created_at', 'desc')->paginate(10);

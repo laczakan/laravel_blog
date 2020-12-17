@@ -47,12 +47,12 @@ class ArticleController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            //get just extention
+            // Get just extention
             $extention = $request->file('image')->getClientOriginalExtension();
-            //filename to store
+            // Filename to store
             $fileNameToStore = uniqid() . '.' . $extention;
 
-            //upload image
+            // Upload image
             $path = $request->file('image')->storeAs('public/upload/articles', $fileNameToStore);
         } else {
             $fileNameToStore = 'null.jpeg';
@@ -118,12 +118,12 @@ class ArticleController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            //get just extention
+            // Get just extention
             $extention = $request->file('image')->getClientOriginalExtension();
-            //filename to store
+            // Filename to store
             $fileNameToStore = uniqid() . '.' . $extention;
 
-            //upload image
+            // Upload image
             $path = $request->file('image')->storeAs('public/upload/articles', $fileNameToStore);
 
             $article->image = $fileNameToStore;
@@ -151,7 +151,7 @@ class ArticleController extends Controller
             $comment->delete();
         }
 
-        //   softdelete
+        // Softdelete
         $article->delete();
 
         return redirect('articles')->with('success', 'Article deleted');
