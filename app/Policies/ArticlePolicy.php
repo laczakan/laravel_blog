@@ -29,6 +29,7 @@ class ArticlePolicy
 
     /**
      * Determine if the given article can be added by the user.
+     * ?User to check if logged in or guest
      *
      * @param  User|null  $user
      * @return bool

@@ -12,4 +12,6 @@
 
     <img src="{{ asset('/img/laravel.png') }}" class="img-fluid">
 
+    <h3 class="text-center">1-31 August blog project</h3>
+
 @endsection
