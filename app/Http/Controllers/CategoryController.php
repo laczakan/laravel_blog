@@ -42,6 +42,7 @@ class CategoryController extends Controller
     // Show all articles for category
     public function show($id)
     {
+        // Find all category - you can choose category in view (from dropdown menu)
         $category = Category::find($id);
         $articles = $category->articles()->orderBy('created_at', 'desc')->paginate(5);
 

@@ -30,6 +30,7 @@ class UserController extends Controller
     // Save user to database
     public function store(Request $request)
     {
+        // Validate field before saving
         $request->validate([
             'name' => ['required', 'min:3', 'max:32'],
             'email' => ['required', 'email', 'unique:users'],
@@ -70,11 +71,11 @@ class UserController extends Controller
             'image' => ['image', 'nullable', 'max:1999']]);
 
         if ($request->hasFile('image')) {
-            //get just extention
+            // Get just extention
             $extention = $request->file('image')->getClientOriginalExtension();
-            //filename to store
+            // Filename to store
             $fileNameToStore = uniqid() . '.' . $extention;
-
+            // Where to store image
             $path = $request->file('image')->storeAs('public/upload/users', $fileNameToStore);
         } else {
             $fileNameToStore = null;
@@ -84,6 +85,7 @@ class UserController extends Controller
             unlink('storage/upload/users/' . $user->image);
         }
 
+        // Save image in database
         $user->image = $fileNameToStore;
         $user->update();
 

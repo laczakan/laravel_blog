@@ -117,6 +117,7 @@ class ArticleController extends Controller
             'status' => 'required', 'in:' . join(',', Article::POSSIBLE_STATUSES)
         ]);
 
+        // Check if request have an image
         if ($request->hasFile('image')) {
             // Get just extention
             $extention = $request->file('image')->getClientOriginalExtension();
