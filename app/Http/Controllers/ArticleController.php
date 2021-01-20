@@ -48,9 +48,9 @@ class ArticleController extends Controller
 
         if ($request->hasFile('image')) {
             // Get just extention
-            $extention = $request->file('image')->getClientOriginalExtension();
+            $extension = $request->file('image')->getClientOriginalExtension();
             // Filename to store
-            $fileNameToStore = uniqid() . '.' . $extention;
+            $fileNameToStore = uniqid() . '.' . $extension;
 
             // Upload image
             $path = $request->file('image')->storeAs('public/upload/articles', $fileNameToStore);
@@ -120,9 +120,9 @@ class ArticleController extends Controller
         // Check if request have an image
         if ($request->hasFile('image')) {
             // Get just extention
-            $extention = $request->file('image')->getClientOriginalExtension();
+            $extension = $request->file('image')->getClientOriginalExtension();
             // Filename to store
-            $fileNameToStore = uniqid() . '.' . $extention;
+            $fileNameToStore = uniqid() . '.' . $extension;
 
             // Upload image
             $path = $request->file('image')->storeAs('public/upload/articles', $fileNameToStore);
